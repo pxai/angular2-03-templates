@@ -18,13 +18,21 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
+            /**
+             * Control specif styles.
+             * Generally it's much better to use ngClass
+             */
             NgStyleSampleComponent = (function () {
                 function NgStyleSampleComponent() {
+                    this.bright = true;
                 }
+                NgStyleSampleComponent.prototype.changeButton = function () {
+                    this.bright = !this.bright;
+                };
                 NgStyleSampleComponent = __decorate([
                     core_1.Component({
                         selector: 'ngstyle-sample',
-                        template: '<button>This is a button for NgStyle Sample</button>'
+                        template: "<div><b>This is a button for NgStyle Sample</b>\n                <button \n                    [ngStyle]=\"{\n                        color : bright ? 'yellow' : 'gray',\n                        backgroundColor : bright ? 'green' : 'black'\n                    }\"\n                (click)=\"changeButton()\">\n                Click me</button>\n                </div>"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], NgStyleSampleComponent);

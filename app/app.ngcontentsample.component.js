@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', './super.panel.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,21 +10,29 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, super_panel_component_1;
     var NgContentSampleComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (super_panel_component_1_1) {
+                super_panel_component_1 = super_panel_component_1_1;
             }],
         execute: function() {
+            /**
+            * changes ng-content with the content of that class
+            * ngTransclude in angular2
+            */
             NgContentSampleComponent = (function () {
                 function NgContentSampleComponent() {
                 }
                 NgContentSampleComponent = __decorate([
                     core_1.Component({
                         selector: 'ngcontent-sample',
-                        template: '<div>This is a button for NgContent Sample</div>'
+                        directives: [super_panel_component_1.SuperPanelComponent],
+                        template: "<div><b> NgContent Sample</b>\n                <super-panel>\n                    <div class=\"heading\">\n                        This is the heading\n                    </div>\n                    <div class=\"content\">\n                        This is the content\n                    </div>\n                    <span class=\"content\">More content</span>\n                </super-panel>\n            </div>"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], NgContentSampleComponent);

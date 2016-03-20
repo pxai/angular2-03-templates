@@ -1,4 +1,4 @@
-System.register(['angular2/core', './haxor.pipe'], function(exports_1, context_1) {
+System.register(['angular2/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,33 +10,37 @@ System.register(['angular2/core', './haxor.pipe'], function(exports_1, context_1
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, haxor_pipe_1;
-    var CustomPipeSampleComponent;
+    var core_1;
+    var HaxorPipe;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (haxor_pipe_1_1) {
-                haxor_pipe_1 = haxor_pipe_1_1;
             }],
         execute: function() {
-            CustomPipeSampleComponent = (function () {
-                function CustomPipeSampleComponent() {
-                    this.content = 'Elite';
+            HaxorPipe = (function () {
+                function HaxorPipe() {
                 }
-                CustomPipeSampleComponent = __decorate([
-                    core_1.Component({
-                        selector: 'custompipe-sample',
-                        template: "<div><b>This is a Custom Pipe</b>\n                    <input type=\"text\" bindon-ngModel=\"content\">\n                    {{content | haxor}}\n                </div>",
-                        pipes: [haxor_pipe_1.HaxorPipe]
+                HaxorPipe.prototype.transform = function (value, args) {
+                    if (value) {
+                        return value.replace(/A/ig, '4').
+                            replace(/E/ig, '3').
+                            replace(/I/ig, '|').
+                            replace(/O/ig, '0').
+                            replace(/L/ig, '1').
+                            replace(/T/ig, '7');
+                    }
+                };
+                HaxorPipe = __decorate([
+                    core_1.Pipe({
+                        name: 'haxor'
                     }), 
                     __metadata('design:paramtypes', [])
-                ], CustomPipeSampleComponent);
-                return CustomPipeSampleComponent;
+                ], HaxorPipe);
+                return HaxorPipe;
             }());
-            exports_1("CustomPipeSampleComponent", CustomPipeSampleComponent);
+            exports_1("HaxorPipe", HaxorPipe);
         }
     }
 });
-//# sourceMappingURL=app.custompipesample.component.js.map
+//# sourceMappingURL=haxor.pipe.js.map

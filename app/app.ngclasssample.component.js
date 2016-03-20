@@ -18,13 +18,29 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
+            /**
+             * We'll make this
+             *                <div>
+                                <h3><i class="glyphicon"
+                                   [class.glyphicon-heart-empty] = "!heartOn"
+                                   [class.glyphicon-heart] = "heartOn"
+                                   [style.color] = "heartOn ? 'red' : 'none' "
+                                   (click)="heartBeat()">
+                                </i> Beat Me!</h3>
+                            </div>
+                Using angular's ngClass we apply one class or another
+             */
             NgClassSampleComponent = (function () {
                 function NgClassSampleComponent() {
+                    this.heartOn = false;
                 }
+                NgClassSampleComponent.prototype.heartBeat = function () {
+                    this.heartOn = !this.heartOn;
+                };
                 NgClassSampleComponent = __decorate([
                     core_1.Component({
                         selector: 'ngclass-sample',
-                        template: '<div>This is a NgClass Sample button</div>'
+                        template: "<div><b>This is a NgClass Sample</b>\n                    <h4><i class=\"glyphicon\"\n                       [ngClass] = \"{\n                           'glyphicon-heart-empty' : !heartOn,\n                           'glyphicon-heart' : heartOn\n                       }\"\n                       (click)=\"heartBeat()\">\n                    </i> Beat Me!</h4>\n                </div>"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], NgClassSampleComponent);

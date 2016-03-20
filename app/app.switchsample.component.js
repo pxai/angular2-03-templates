@@ -18,13 +18,22 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
+            /**
+             * Use ngSwitchDefault alone or with another case
+             * Alternate syntax:
+             *                     <div *ngSwitch="">
+                                    <template>...</template>
+                                    <template>...</template>
+                                </div>
+             */
             SwitchSampleComponent = (function () {
                 function SwitchSampleComponent() {
+                    this.name = 'any';
                 }
                 SwitchSampleComponent = __decorate([
                     core_1.Component({
                         selector: 'switch-sample',
-                        template: '<div>This is a switch sample</div>'
+                        template: "<div><b>This is a switch sample</b>\n                {{name}} (Try with Eugene, Squidward or any...)\n                <input type=\"text\" bindon-ngModel=\"name\">\n                    <div [ngSwitch]=\"name\">\n                        <template [ngSwitchWhen]=\"'Eugene'\">\n                            <div class=\"panel panel-info\">Mr Krabs</div>\n                        </template>\n                        <template [ngSwitchWhen]=\"'Squidward'\">\n                            <div class=\"panel panel-info\">Mr Tentacles</div>\n                        </template>\n                        <template  ngSwitchDefault>\n                            <div class=\"panel panel-info\">Mr Squarepants</div>\n                        </template>\n                    </div>\n                </div>"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], SwitchSampleComponent);

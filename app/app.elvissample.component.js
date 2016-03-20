@@ -18,13 +18,28 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
+            /**
+             * with this operator we can avoid
+             * checking if a variable is different from null
+             * with *ngIf="persona.salary != null"
+             * or using complex elvis operation
+             */
             ElvisSampleComponent = (function () {
                 function ElvisSampleComponent() {
+                    this.person = {
+                        name: 'Eugene Krabs',
+                        race: 'Krab',
+                        salary: null,
+                        business: {
+                            name: 'Krusty Krab',
+                            type: 'Fast food'
+                        }
+                    };
                 }
                 ElvisSampleComponent = __decorate([
                     core_1.Component({
                         selector: 'elvis-sample',
-                        template: '<div>This is a button for Elvis Sample</div>'
+                        template: "<div><b>Elvis operator Sample</b>\n                    <div>Person data\n                        <ul>\n                            <li>{{person.name}}</li>\n                            <li>{{person.race}}</li>\n                            <li>{{person?.salary}}</li>\n                            <li>{{person?.business?.name}}</li>\n                        </ul>\n                    </div>\n               </div>"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], ElvisSampleComponent);

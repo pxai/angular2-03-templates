@@ -18,13 +18,18 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
+            /**
+             * the *ngFor is just sintactic sugar that tells
+             * angular to create una template element for every div
+             * Without it we need to add this template code
+             */
             AsteriskSampleComponent = (function () {
                 function AsteriskSampleComponent() {
                 }
                 AsteriskSampleComponent = __decorate([
                     core_1.Component({
                         selector: 'asterisk-sample',
-                        template: '<div>This is a Asterisk sample button</div>'
+                        template: "<div><b>This is a for without asterisk</b>\n                    <template ngFor [ngForOf]=\"courses\" #course #counter=index>\n                        {{counter}} - {{course}}, \n                    </template>\n                </div>"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AsteriskSampleComponent);

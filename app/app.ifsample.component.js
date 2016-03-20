@@ -18,13 +18,21 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
+            /**
+             * using *ngIf : better performance with many components
+             * or [hidden]: use for a few components
+             */
             IfSampleComponent = (function () {
                 function IfSampleComponent() {
+                    this.counter = 0;
                 }
+                IfSampleComponent.prototype.inc = function () {
+                    this.counter++;
+                };
                 IfSampleComponent = __decorate([
                     core_1.Component({
                         selector: 'if-sample',
-                        template: '<div>This is an if sample</div>'
+                        template: "<div><b>This is an if sample</b>\n                <div class='panel' *ngIf=\"counter == 0\">\n                    This counter is 0: {{counter}}\n                    <button (click)=\"inc()\">Increment</button>\n                </div>\n                <div class='panel panel-info' *ngIf=\"counter > 0\">\n                    This counter is bigger than 0: {{counter}}\n                </div>\n                <div class='panel panel-warning' [hidden]=\"counter > 0\">\n                    This counter is bigger than 0: {{counter}}\n                </div>\n            </div>"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], IfSampleComponent);

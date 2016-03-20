@@ -11,7 +11,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var ForSampleComponent;
+    var SuperPanelComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -19,27 +19,23 @@ System.register(['angular2/core'], function(exports_1, context_1) {
             }],
         execute: function() {
             /**
-             * #course and #counter are local variables
-             * #index is defined by Angular and it increments automatically
-             * the *ngFor is just sintactic sugar that tells
-             * angular to create una template element for every div
-             * Alternative Sintax is given
-             */
-            ForSampleComponent = (function () {
-                function ForSampleComponent() {
-                    this.courses = ['Typescript', 'Angular', 'Ionic'];
+            * changes ng-content with the content of that class
+            * ngTransclude in angular2
+            */
+            SuperPanelComponent = (function () {
+                function SuperPanelComponent() {
                 }
-                ForSampleComponent = __decorate([
+                SuperPanelComponent = __decorate([
                     core_1.Component({
-                        selector: 'for-sample',
-                        template: "<div><b>This is a for sample</b>\n                    <div *ngFor=\"#course of courses, #counter = index\">\n                        {{counter}} - {{course}}\n                    </div>\n                    <template ngFor [ngForOf]=\"courses\" #course #counter=index>\n                        {{counter}} - {{course}}, \n                    </template>\n                </div>"
+                        selector: 'super-panel',
+                        template: "<div class=\"panel pane-default\">\n                    <div class=\"panel-heading\">\n                        <ng-content select=\".heading\">\n                        </ng-content>\n                    </div>\n                    <div class=\"panel-content\">\n                        <ng-content select=\".heading\">\n                        </ng-content>\n                    </div>\n               </div>"
                     }), 
                     __metadata('design:paramtypes', [])
-                ], ForSampleComponent);
-                return ForSampleComponent;
+                ], SuperPanelComponent);
+                return SuperPanelComponent;
             }());
-            exports_1("ForSampleComponent", ForSampleComponent);
+            exports_1("SuperPanelComponent", SuperPanelComponent);
         }
     }
 });
-//# sourceMappingURL=app.forsample.component.js.map
+//# sourceMappingURL=super.panel.component.js.map

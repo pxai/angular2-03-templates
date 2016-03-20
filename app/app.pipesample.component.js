@@ -18,13 +18,25 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
+            /**
+             * Formats:
+             *  uppercase, lowercase
+             *  number, currency
+             *  date
+             *  json: to expose objects
+             */
             PipeSampleComponent = (function () {
                 function PipeSampleComponent() {
+                    this.title = 'This is just a title';
+                    this.bigNumber = 4456343424;
+                    this.mark = 9.34;
+                    this.price = 166.386;
+                    this.deliveryDate = new Date(2015, 12, 30);
                 }
                 PipeSampleComponent = __decorate([
                     core_1.Component({
                         selector: 'pipe-sample',
-                        template: '<div>This is a pipe sample</div>'
+                        template: "<div><b>This is a pipe sample</b>\n                <ul>\n                    <li>{{title | uppercase}}</li>\n                    <li>{{bigNumber | number}}</li>\n                    <li>{{mark | number:'2.2-2'}}</li>\n                    <li>{{price | currency:'USD':true:'2.2-2'}}</li>\n                    <li>{{deliveryDate | date:'yyyy MM dd'}}</li>\n                </ul>\n            </div>"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], PipeSampleComponent);
