@@ -27,8 +27,8 @@ import {ElvisSampleComponent} from './app.elvissample.component';
                     <custompipe-sample></custompipe-sample>
                     <ngclass-sample></ngclass-sample>
                     <ngstyle-sample></ngstyle-sample>
-                    <ngcontent-sample></ngcontent-sample>
                     <elvis-sample></elvis-sample>
+                    <ngcontent-sample></ngcontent-sample>
                </section>
             `
 })

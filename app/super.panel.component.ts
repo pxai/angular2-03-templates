@@ -8,12 +8,10 @@ import {Component} from 'angular2/core';
     selector: 'super-panel',
     template: `<div class="panel pane-default">
                     <div class="panel-heading">
-                        <ng-content select=".heading">
-                        </ng-content>
+                        <ng-content select=".heading"></ng-content>
                     </div>
                     <div class="panel-content">
-                        <ng-content select=".heading">
-                        </ng-content>
+                        <ng-content select=".content"></ng-content>
                     </div>
                </div>`
 })

@@ -28,7 +28,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 SuperPanelComponent = __decorate([
                     core_1.Component({
                         selector: 'super-panel',
-                        template: "<div class=\"panel pane-default\">\n                    <div class=\"panel-heading\">\n                        <ng-content select=\".heading\">\n                        </ng-content>\n                    </div>\n                    <div class=\"panel-content\">\n                        <ng-content select=\".heading\">\n                        </ng-content>\n                    </div>\n               </div>"
+                        template: "<div class=\"panel pane-default\">\n                    <div class=\"panel-heading\">\n                        <ng-content select=\".heading\"></ng-content>\n                    </div>\n                    <div class=\"panel-content\">\n                        <ng-content select=\".content\"></ng-content>\n                    </div>\n               </div>"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], SuperPanelComponent);
